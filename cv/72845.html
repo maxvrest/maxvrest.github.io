@@ -10,7 +10,7 @@
       --bg: #fbfaf9;
       --text: #24323a;
       --muted: #6b7780;
-      --accent: #b3e6c1; /* pastel mint for skills */
+      --accent: #b3e6c1;
       --radius: 12px;
     }
     *{box-sizing:border-box}
@@ -57,6 +57,7 @@
     .photo{
       width:160px;height:160px;border-radius:14px;background:linear-gradient(180deg,#e8f9ee,#fff6f2);
       display:flex;align-items:center;justify-content:center;font-weight:700;color:#2b3b3f;font-size:20px;
+      object-fit:cover;
     }
     .photo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
     .hint{margin-top:10px;text-align:center;color:var(--muted);font-size:13px}
@@ -84,8 +85,7 @@
   <main>
     <!-- Top Photo -->
     <section class="section photo-wrap">
-      <div class="photo" id="photo-placeholder">M</div>
-      <div class="hint">Klik op de placeholder om later een foto toe te voegen</div>
+      <img class="photo" src="cv/profielfoto.jpg" alt="Profielfoto van Max">
     </section>
 
     <!-- Basisinformatie -->
@@ -107,7 +107,7 @@
     <section class="section">
       <h2>Profiel</h2>
       <div class="photo-wrap">
-        <div class="photo" style="width:120px;height:120px;">Foto</div>
+        <img class="photo" src="cv/profielfoto.jpg" alt="Profielfoto in profiel sectie">
       </div>
       <p>Strategisch denker met een civieltechnische achtergrond en een sterke interesse in AI, data en creatieve productontwikkeling. Ervaring met onderzoek binnen gemeenten, trendanalyse en het vertalen van technologie naar mensgerichte toepassingen.</p>
     </section>
@@ -172,9 +172,9 @@
       <h2>Hobby's</h2>
       <p>Gitaar, muziek maken, hiken, creatieve projecten.</p>
       <div class="bottom-photos">
-        <div class="photo">1</div>
-        <div class="photo">2</div>
-        <div class="photo">3</div>
+        <img class="photo" src="cv/hardlopen.jpg" alt="Hardlopen">
+        <img class="photo" src="cv/gitaar.jpg" alt="Gitaar spelen">
+        <img class="photo" src="cv/boat.jpg" alt="Boot">
       </div>
     </section>
 
