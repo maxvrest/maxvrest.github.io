@@ -62,6 +62,14 @@
     .photo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
     .hint{margin-top:10px;text-align:center;color:var(--muted);font-size:13px}
 
+    /* Make the top profile photo larger without affecting other thumbnails */
+    .section.photo-wrap > .photo{
+      width:200px;
+      height:200px;
+      border-radius:18px;
+      font-size:22px;
+    }
+
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .meta-list{display:flex;flex-direction:column;gap:8px}
 
@@ -74,18 +82,47 @@
     .bottom-photos{display:flex;gap:12px;margin-top:12px;justify-content:center}
     .bottom-photos .photo{width:100px;height:100px;font-size:16px}
 
+    /* Experience section: text left, image right */
+    .experience{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      margin-top:8px;
+    }
+    .experience-text{flex:1}
+    .experience-photo{width:180px;flex:0 0 180px}
+    .experience-photo .photo{width:100%;height:180px;border-radius:12px}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .18s ease;
+      z-index:2000;padding:20px
+    }
+    .lightbox.open{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+    .lightbox-close{
+      position:fixed;right:22px;top:20px;font-size:28px;background:transparent;border:0;color:white;cursor:pointer;padding:8px;z-index:2010
+    }
+
     @media (max-width:640px){
       .two-col{grid-template-columns:1fr}
+      .section.photo-wrap > .photo{width:160px;height:160px}
       .photo{width:140px;height:140px}
       .bottom-photos .photo{width:80px;height:80px}
+      .experience{flex-direction:column}
+      .experience-photo{width:100%;flex-basis:auto}
+      .experience-photo .photo{height:140px}
     }
   </style>
 </head>
 <body>
   <main>
-    <!-- Top Photo -->
+    <!-- Top Photo (profile) -->
     <section class="section photo-wrap">
-      <img class="photo" src="profielfoto.jpg" alt="Profielfoto van Max">
+      <div class="photo" title="Profielfoto van Max">
+        <img src="profielfoto.jpg" alt="Profielfoto van Max">
+      </div>
     </section>
 
     <!-- Basisinformatie -->
@@ -103,12 +140,9 @@
       </div>
     </section>
 
-    <!-- Profiel -->
+    <!-- Profiel (removed inner photo, keeping text) -->
     <section class="section">
       <h2>Profiel</h2>
-      <div class="photo-wrap">
-        <img class="photo" src="paradiso.jpg" alt="Profielfoto in profiel sectie">
-      </div>
       <p>Strategisch denker met een civieltechnische achtergrond en een sterke interesse in AI, data en creatieve productontwikkeling. Ervaring met onderzoek binnen gemeenten, trendanalyse en het vertalen van technologie naar mensgerichte toepassingen.</p>
     </section>
 
@@ -121,15 +155,23 @@
       </div>
     </section>
 
-    <!-- Ervaring -->
+    <!-- Ervaring (met paradiso.jpg on the right) -->
     <section class="section">
       <h2>Ervaring</h2>
-      <div style="margin-top:8px">
-        <div><strong>AI Lab — Gemeente Amsterdam</strong><div class="subtle" style="margin-top:6px">Onderzoek, innovatie &amp; trendanalyse · 2022 — heden</div>
-        <p style="margin-top:8px" class="subtle">Verantwoordelijk voor het verkennen van AI-toepassingen, ethische afwegingen en het adviseren van stakeholders over risico's en kansen.</p></div>
+      <div class="experience">
+        <div class="experience-text">
+          <div><strong>AI Lab — Gemeente Amsterdam</strong><div class="subtle" style="margin-top:6px">Onderzoek, innovatie &amp; trendanalyse · 2022 — heden</div>
+          <p style="margin-top:8px" class="subtle">Verantwoordelijk voor het verkennen van AI-toepassingen, ethische afwegingen en het adviseren van stakeholders over risico's en kansen.</p></div>
 
-        <div style="margin-top:12px"><strong>Projectmanagement &amp; conceptontwikkeling — diverse projecten</strong><div class="subtle" style="margin-top:6px">2018 — 2022</div>
-        <p style="margin-top:8px" class="subtle">Leiding geven aan kleine teams, opzetten van experimenten en het vertalen van ideeën naar prototypen.</p></div>
+          <div style="margin-top:12px"><strong>Projectmanagement &amp; conceptontwikkeling — diverse projecten</strong><div class="subtle" style="margin-top:6px">2018 — 2022</div>
+          <p style="margin-top:8px" class="subtle">Leiding geven aan kleine teams, opzetten van experimenten en het vertalen van ideeën naar prototypen.</p></div>
+        </div>
+
+        <div class="experience-photo">
+          <div class="photo" title="Concertfoto — Paradiso">
+            <img src="paradiso.jpg" alt="Max in Paradiso">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -172,14 +214,66 @@
       <h2>Hobby's</h2>
       <p>Gitaar, muziek maken, hiken, creatieve projecten.</p>
       <div class="bottom-photos">
-        <img class="photo" src="hardlopen.jpg" alt="Hardlopen">
-        <img class="photo" src="gitaar.jpg" alt="Gitaar">
-        <img class="photo" src="boat.jpg" alt="Varen">
-        <img class="photo" src="fietsen.jpg" alt="Fietsen">
-        <img class="photo" src="ski.jpg" alt="Skiën">
+        <div class="photo" title="Hardlopen"><img src="hardlopen.jpg" alt="Hardlopen"></div>
+        <div class="photo" title="Gitaar"><img src="gitaar.jpg" alt="Gitaar"></div>
+        <div class="photo" title="Varen"><img src="boat.jpg" alt="Varen"></div>
+        <div class="photo" title="Fietsen"><img src="fietsen.jpg" alt="Fietsen"></div>
+        <div class="photo" title="Skiën"><img src="ski.jpg" alt="Skiën"></div>
       </div>
     </section>
 
   </main>
+
+  <!-- Lightbox / Image modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Afbeelding vergroot">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Sluit">×</button>
+    <img id="lightbox-img" alt="">
+  </div>
+
+  <script>
+    // Simple lightbox for all elements with class .photo (works for thumbnails and larger images)
+    (function(){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      function openLightbox(src, alt){
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      // Attach click on all .photo > img and .photo itself (in case of placeholder divs)
+      document.querySelectorAll('.photo').forEach(wrapper => {
+        const img = wrapper.querySelector('img');
+        if(img){
+          wrapper.style.cursor = 'pointer';
+          img.addEventListener('click', e => {
+            e.stopPropagation();
+            openLightbox(img.src, img.alt);
+          });
+          // also allow clicking the wrapper around the image
+          wrapper.addEventListener('click', () => openLightbox(img.src, img.alt));
+        }
+      });
+
+      // Close handlers
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox || e.target === lightboxImg) closeLightbox();
+      });
+      window.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
