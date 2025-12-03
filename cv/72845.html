@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV — Max</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fbfaf9;
+      --text: #24323a;
+      --muted: #6b7780;
+      --accent: #b3e6c1; /* pastel mint for skills */
+      --radius: 12px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 16px;
+      display:flex;
+      justify-content:center;
+    }
+
+    main{
+      width:100%;
+      max-width:720px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .section{
+      background:transparent;
+      padding:18px 6px;
+      border-radius:var(--radius);
+    }
+    .section + .section{
+      border-top:1px solid rgba(36,50,58,0.06);
+      padding-top:22px;
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      font-size:15px;
+      color:var(--text);
+      font-weight:600;
+    }
+
+    p{margin:0;color:var(--muted);line-height:1.5}
+
+    .photo-wrap{display:flex;justify-content:center;margin-bottom:12px}
+    .photo{
+      width:160px;height:160px;border-radius:14px;background:linear-gradient(180deg,#e8f9ee,#fff6f2);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#2b3b3f;font-size:20px;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .hint{margin-top:10px;text-align:center;color:var(--muted);font-size:13px}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .meta-list{display:flex;flex-direction:column;gap:8px}
+
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .badge{padding:8px 12px;border-radius:999px;background:var(--accent);color:var(--text);font-weight:600;font-size:13px}
+
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    .subtle{color:var(--muted);font-size:14px}
+
+    .bottom-photos{display:flex;gap:12px;margin-top:12px;justify-content:center}
+    .bottom-photos .photo{width:100px;height:100px;font-size:16px}
+
+    @media (max-width:640px){
+      .two-col{grid-template-columns:1fr}
+      .photo{width:140px;height:140px}
+      .bottom-photos .photo{width:80px;height:80px}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Top Photo -->
+    <section class="section photo-wrap">
+      <div class="photo" id="photo-placeholder">M</div>
+      <div class="hint">Klik op de placeholder om later een foto toe te voegen</div>
+    </section>
+
+    <!-- Basisinformatie -->
+    <section class="section">
+      <h2>Basisinformatie</h2>
+      <div style="margin-top:8px" class="two-col">
+        <div class="meta-list">
+          <div><strong>Naam</strong><br><span class="subtle">Max</span></div>
+          <div><strong>Locatie</strong><br><span class="subtle">Amsterdam</span></div>
+        </div>
+        <div class="meta-list">
+          <div><strong>Email</strong><br><span class="subtle">jouw@email.com</span></div>
+          <div><strong>LinkedIn</strong><br><a href="#" style="color:inherit;text-decoration:underline">mijn profiel</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profiel -->
+    <section class="section">
+      <h2>Profiel</h2>
+      <div class="photo-wrap">
+        <div class="photo" style="width:120px;height:120px;">Foto</div>
+      </div>
+      <p>Strategisch denker met een civieltechnische achtergrond en een sterke interesse in AI, data en creatieve productontwikkeling. Ervaring met onderzoek binnen gemeenten, trendanalyse en het vertalen van technologie naar mensgerichte toepassingen.</p>
+    </section>
+
+    <!-- Opleiding -->
+    <section class="section">
+      <h2>Opleiding</h2>
+      <div style="margin-top:8px">
+        <div><strong>Bachelor Civiele Techniek — TU Delft</strong><div class="subtle" style="margin-top:6px">2014 — 2018 · Technische basis, systemisch denken</div></div>
+        <div style="margin-top:12px"><strong>AI &amp; Data Science — diverse cursussen</strong><div class="subtle" style="margin-top:6px">2020 — heden · Zelfstudie en praktijkprojecten</div></div>
+      </div>
+    </section>
+
+    <!-- Ervaring -->
+    <section class="section">
+      <h2>Ervaring</h2>
+      <div style="margin-top:8px">
+        <div><strong>AI Lab — Gemeente Amsterdam</strong><div class="subtle" style="margin-top:6px">Onderzoek, innovatie &amp; trendanalyse · 2022 — heden</div>
+        <p style="margin-top:8px" class="subtle">Verantwoordelijk voor het verkennen van AI-toepassingen, ethische afwegingen en het adviseren van stakeholders over risico's en kansen.</p></div>
+
+        <div style="margin-top:12px"><strong>Projectmanagement &amp; conceptontwikkeling — diverse projecten</strong><div class="subtle" style="margin-top:6px">2018 — 2022</div>
+        <p style="margin-top:8px" class="subtle">Leiding geven aan kleine teams, opzetten van experimenten en het vertalen van ideeën naar prototypen.</p></div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="badges" style="margin-top:10px">
+        <div class="badge">AI conceptontwikkeling</div>
+        <div class="badge">Storytelling</div>
+        <div class="badge">Data-analyse</div>
+        <div class="badge">Trendonderzoek</div>
+        <div class="badge">Productdenken</div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="section">
+      <h2>Tools</h2>
+      <ul style="margin-top:8px">
+        <li>Python</li>
+        <li>LM Studio</li>
+        <li>Notion</li>
+        <li>Figma</li>
+        <li>WhisperX</li>
+      </ul>
+    </section>
+
+    <!-- Talen -->
+    <section class="section">
+      <h2>Talen</h2>
+      <ul style="margin-top:8px">
+        <li>Nederlands — Moedertaal</li>
+        <li>Engels — Vloeiend</li>
+        <li>Servisch — Lerend</li>
+      </ul>
+    </section>
+
+    <!-- Hobby's -->
+    <section class="section">
+      <h2>Hobby's</h2>
+      <p>Gitaar, muziek maken, hiken, creatieve projecten.</p>
+      <div class="bottom-photos">
+        <div class="photo">1</div>
+        <div class="photo">2</div>
+        <div class="photo">3</div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
